@@ -47,14 +47,9 @@ $(function () {
         },
         bindButtons: function () {
             for (var q = 1; q <= buttons.length; q++){
-                var cat = model.cats[i-2];
-                $("#button"+q).click((function(value){
-                    return function () {
-                        model.currentCat = model.cats[value];
-                        console.log(value);
-                        console.log(model.cats[value]);
-            })(cat));
-                }
+                $("#button"+q).eq(i).on("click", {value:q}, function (event) {
+                    
+                })
         },
         updateCat: function () {
         	$("#cat-name").html(model.currentCat.name);
