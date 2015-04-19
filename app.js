@@ -11,7 +11,7 @@ $(function () {
             {
                 name: 'Chester', 
                 clickCount: 0, 
-                url: 'images/cat_picture2.jpg'
+                img: 'images/cat_picture2.jpg'
             },
             {
                 name: 'Princess',
@@ -46,10 +46,11 @@ $(function () {
         	}
         },
         bindButtons: function () {
-            for (var q = 1; q <= buttons.length; q++){
-                $("#button"+q).eq(i).on("click", {value:q}, function (event) {
-                    
-                })
+         for (var q = 1; q <= buttons.length; q++){
+                $("#button"+q).on("click", {value:q-1}, function (event) {
+                     model.currentCat = model.cats[event.data.value];
+                     view2.render();
+                });}
         },
         updateCat: function () {
         	$("#cat-name").html(model.currentCat.name);
@@ -77,7 +78,6 @@ $(function () {
     	},
     	render: function () {
     		octopus.updateCat();
-            console.log("view2 render")
     	}
     }
 
