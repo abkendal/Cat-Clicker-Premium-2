@@ -58,7 +58,6 @@ $(function () {
                 model.currentCat.clickCount = model.currentCat.clickCount + 1;
                 view2.render();
             })
-            console.log("image bind");
         },
         updateCat: function () {
         	$("#cat-name").html(model.currentCat.name);
@@ -87,7 +86,6 @@ $(function () {
     	},
     	render: function () {
     		octopus.updateCat();
-            console.log("view2 render");
     	}
     }
 
