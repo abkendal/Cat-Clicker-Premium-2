@@ -46,11 +46,19 @@ $(function () {
         	}
         },
         bindButtons: function () {
-         for (var q = 1; q <= buttons.length; q++){
-                $("#button"+q).on("click", {value:q-1}, function (event) {
+         for (var j = 1; j <= buttons.length; j++){
+                $("#button"+j).on("click", {value:j-1}, function (event) {
                      model.currentCat = model.cats[event.data.value];
                      view2.render();
                 });}
+        },
+
+        imageBind: function (){
+            $('#cat-img').on("click", function () {
+                model.currentCat.clickCount = model.currentCat.clickCount + 1;
+                view2.render();
+            })
+            console.log("image bind");
         },
         updateCat: function () {
         	$("#cat-name").html(model.currentCat.name);
@@ -75,9 +83,11 @@ $(function () {
     var view2 = {
     	init: function() {
     		octopus.updateCat();
+            octopus.imageBind();
     	},
     	render: function () {
     		octopus.updateCat();
+            console.log("view2 render");
     	}
     }
 
