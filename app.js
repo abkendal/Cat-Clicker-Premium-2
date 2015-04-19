@@ -65,7 +65,7 @@ $(function () {
         	$("#cat-img").attr("src", model.currentCat.img);
         }
     };
-
+ 
 
     var view1 = {
         init: function() {
