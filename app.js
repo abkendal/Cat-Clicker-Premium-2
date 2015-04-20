@@ -61,7 +61,7 @@ $(document).ready(function () {
                 $('#cat-img').on("click", function () {
                     model.currentCat.clickCount++;
                     view2.render();
-                })
+                }) 
             },
             updateCat: function () {
             	$("#cat-name").html(model.currentCat.name);
