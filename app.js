@@ -80,7 +80,11 @@ $(function () {
             })
         },
         cancelButton: function () {
-
+            $(':input','#form')
+              .not(':button, :submit, :reset, :hidden')
+              .val('')
+              .removeAttr('checked')
+              .removeAttr('selected');
         },
         saveButton: function () {
 
