@@ -2,6 +2,7 @@ $(function () {
 
     var model = {
         currentCat: null,
+        adminView: false,
         cats: [
             {
                 name: 'Furball',
@@ -39,6 +40,8 @@ $(function () {
             view1.init();
             model.currentCat = model.cats[0];
             view2.init();
+            view3.init();
+            $("#form").hide();
         },
         getCats: function () {
         	for (i = 0; i < model.cats.length; i++){
@@ -63,6 +66,24 @@ $(function () {
         	$("#cat-name").html(model.currentCat.name);
         	$("#cat-count").html(model.currentCat.clickCount);
         	$("#cat-img").attr("src", model.currentCat.img);
+        },
+        adminButton: function () {
+            $("#admin").on("click", function () {
+                if(model.adminView == false) {
+                    model.adminView = true;
+                    $("#form").show();
+                } else {
+                    model.adminView = false;
+                    $("#form").hide();
+                };
+
+            })
+        },
+        cancelButton: function () {
+
+        },
+        saveButton: function () {
+
         }
     };
  
@@ -87,6 +108,17 @@ $(function () {
     	render: function () {
     		octopus.updateCat();
     	}
+    };
+
+    var view3 = {
+        init: function () {
+            octopus.adminButton();
+            octopus.cancelButton();
+            octopus.saveButton();
+        },
+        render: function () {
+            
+        }
     }
 
     octopus.init();
